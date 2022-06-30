@@ -1,0 +1,31 @@
+.header {
+    padding: 3vh 0 0 0;
+    background-color: #0A0D14;
+    padding: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+}
+
+.navmenu {
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+.navmenu ul {
+    display: inherit;
+    list-style-type: none;
+    justify-content: space-between;
+    flex-shrink: 5;
+}
+
+.navmenu li {
+    margin: 0 30px;
+    font-size: 2em;
+}
+
+.navmenu a {
+    color: white;
+    text-decoration: none;
+}
