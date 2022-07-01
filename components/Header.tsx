@@ -1,4 +1,6 @@
+import { V4MAPPED } from "dns";
 import { FunctionComponent } from "react";
+import { v4 as uuidv4 } from 'uuid';
 import styles from "../styles/Header.module.css"
 
 export interface NavItem {
@@ -17,7 +19,7 @@ const Header: FunctionComponent<HeaderProps> = (props) => {
             <nav className={styles.navmenu}>
                 <ul>             
                     {props.items.map(({ name, url }) => (
-                        <li><a href={url}>{name}</a></li>
+                        <li key={uuidv4()}><a href={url}>{name}</a></li>
                     ))}
                 </ul>
             </nav>

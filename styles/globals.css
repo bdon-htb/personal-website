@@ -23,7 +23,7 @@ section {
 /* home content container */
 .hccontainer {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .profilepic {

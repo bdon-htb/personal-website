@@ -1,22 +1,39 @@
-import type { NextPage } from 'next'
+import type { InferGetStaticPropsType, NextPage } from 'next'
 import Image  from 'next/image'
+import { v4 as uuidv4 } from 'uuid';
 
 import ContentCard from '../components/ContentCard'
 import Header from '../components/Header'
 import type { NavItem } from '../components/Header'
+import type { ProjectCardProps } from '../components/ProjectCard'
 
 import profilePic from '../public/images/profile.jpg'
+import ProjectCard from '../components/ProjectCard'
 
-const Home: NextPage = () => {
+export const getStaticProps = async () => {
   const navItems: NavItem[] = [
     { name: 'home', url: '#home', active: false },
     { name: 'skills', url: '#skills', active: false },
-    { name: 'projects', url: '', active: false },
+    { name: 'projects', url: '#projects', active: false },
     { name: 'contact', url: '#contact', active: true },
   ];
+
+  const projects: ProjectCardProps[] = [
+    { key: uuidv4(), imageURL: '/images/profile.jpg', previewURL: '/videos/jothepyro_preview.mp4', name: 'Jo The Pyro', demoURL: null, srcURL: null }
+  ];
+
+  return {
+    props: {
+      navItems,
+      projects
+    }
+  }
+}
+
+const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) => {
   return (
     <>
-      <Header items={navItems}></Header>
+      <Header items={props.navItems}></Header>
 
       <section id="home">
         <ContentCard>
@@ -42,13 +59,27 @@ const Home: NextPage = () => {
 
       <section id="skills">
         <ContentCard>
-          <h1>Yoooooooo</h1>
+          <h1>SKILLS</h1>
+          <p>
+            Yooooooo!
+          </p>
         </ContentCard>
       </section>
 
+      <section id="projects">
+        <div>
+          {props.projects.map( p => (
+            <ProjectCard {...p}></ProjectCard>
+          ))}
+        </div>
+      </section> 
+
       <section id="contact">
         <ContentCard>
-          <h1>Yoooooooo</h1>
+          <h1>CONTACT</h1>
+          <p>
+            Yoooooooo!
+          </p>
         </ContentCard>
       </section>      
     </>
