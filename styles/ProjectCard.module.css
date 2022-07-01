@@ -1,4 +1,50 @@
 .container {
-
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    max-width: 200px;
+    border-radius: 0.1rem;
 }
 
+.btncontainer {
+    display: flex;
+    justify-content: center;
+}
+
+.infocontainer {
+    box-sizing: border-box;
+    padding: 5px 10px 5px 10px;
+    max-width: inherit;
+}
+
+.name {
+    margin: 5px 0;
+    color: inherit;
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+.brief {
+    font-size: 1rem;
+    text-align: center;
+}
+
+.demolink,
+.srclink {
+    width: 48px;
+    height: 48px;
+    margin: 0 10px;
+    border-radius: 70%;
+    border-style: none;
+}
+
+.demolink img,
+.srclink img {
+    width: inherit;
+    height: inherit;
+    transition: all 0.2s ease-in-out;
+}
+
+.demolink img:hover,
+.srclink img:hover {
+    transform: scale(1.1);
+}

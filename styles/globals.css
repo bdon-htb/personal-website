@@ -1,10 +1,21 @@
+:root {
+  --bg-primary: #244C72;
+  --bg-accent: #B8F3FF;
+  --bg-dark: #0A0D14;
+  --bg-light: #EEEEEE;
+  --text-light: #FAFAFA;
+  --text-dark: #212121;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  background-color: #0A0D14;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
   font-family: 'Poppins', sans-serif;
   height: 100%;
+  z-index: -100;
 }
 
 #__next {
@@ -26,6 +37,11 @@ section {
   justify-content: space-between;
 }
 
+/* projects content container */
+/* .pccontainer {
+
+} */
+
 .profilepic {
   border-radius: 70%;
 }
@@ -33,4 +49,15 @@ section {
 .profilepic__wrapper {
   max-height: 300px;
   max-width: 300px;
+}
+
+/* Animations */
+@keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeout {
+    from { opacity: 1; }
+    to { opacity: 0; }
 }

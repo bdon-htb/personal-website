@@ -8,17 +8,31 @@
 
 .container__content {
     padding: 10px 20px;
-    color: white;
+    color: var(--bg-light);
     position: relative;
-    z-index: 1;
+    z-index: 2;
+}
+
+.container__background,
+.container__dropshadow {
+    position: absolute;
+    border-radius: 0.75rem;
 }
 
 .container__background {
-    background: rgb(36, 76, 114, 0.4);
-    border-radius: 0.75rem;
-    position: absolute;
+    background: var(--bg-primary);
+    opacity: 0.4;
     top: 0;
     right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.container__dropshadow {
+    background: var(--bg-accent);
+    top: 0px;
+    left: 10px;
     width: 100%;
     height: 100%;
     z-index: 0;

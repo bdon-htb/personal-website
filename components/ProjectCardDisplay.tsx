@@ -11,37 +11,62 @@ export interface ProjectCardDisplayProps {
 const ProjectCardDisplay: FunctionComponent<ProjectCardDisplayProps> = (props) => {
     const width = "200";
     const height = "300";
+    const fadeTime = 1000; // ms
 
     const videoRef = createRef<HTMLVideoElement>();
+
     const [videoClass, setVideoClass] = useState(styles.hidden);
     const [imgClass, setImgClass] = useState(styles.active);
+    const [videoTimeout, setVideoTimeout] = useState <ReturnType<typeof setTimeout> | null>(null);
+
+    const startVideo = () => {
+        if (videoRef.current) {
+            if (videoTimeout !== null) {
+                clearTimeout(videoTimeout);
+            }
+            setVideoTimeout(null);
+            videoRef.current.currentTime = 0;
+            videoRef.current.play();
+        }          
+    }
+    
+    const resetVideo = () => {
+        if (videoRef.current) {
+            videoRef.current.currentTime = 0;
+            videoRef.current.pause();
+        }        
+    }
+    const stopVideo = () => {
+        if (videoRef.current) {
+            if (videoTimeout) {
+                clearTimeout(videoTimeout);
+            }
+            setVideoTimeout(setTimeout(resetVideo, fadeTime));
+        }        
+    }
+
 
     const mouseHandler = (enter: boolean) => {
         if (enter) {
             setVideoClass(styles.active);
             setImgClass(styles.hidden);
-            if (videoRef.current) {
-                videoRef.current.play();
-            }            
+            startVideo()
         }
         else {
             setVideoClass(styles.hidden);
             setImgClass(styles.active);
-            if (videoRef.current) {
-                videoRef.current.pause();
-                videoRef.current.currentTime = 0;
-            }
+            stopVideo()
         }
     }
 
     console.log(props.previewURL);
     return (
-        <div onMouseEnter={() => mouseHandler(true)} onMouseLeave={() => mouseHandler(false)}>
+        <div className={styles.container} onMouseEnter={() => mouseHandler(true)} onMouseLeave={() => mouseHandler(false)}>
             <video ref={videoRef} className={videoClass} width={width} height={height} loop muted>
                 <source src={props.previewURL} type="video/mp4"/>
             </video>
             <div className={imgClass}>
-                <Image src={props.imageURL} width={width} height={height}/>
+                <Image src={props.imageURL} width={width} height={height} layout="fixed"/>
             </div>
         </div>
     )

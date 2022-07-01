@@ -19,7 +19,7 @@ export const getStaticProps = async () => {
   ];
 
   const projects: ProjectCardProps[] = [
-    { key: uuidv4(), imageURL: '/images/profile.jpg', previewURL: '/videos/jothepyro_preview.mp4', name: 'Jo The Pyro', demoURL: null, srcURL: null }
+    { key: uuidv4(), imageURL: '/images/profile.jpg', previewURL: '/videos/jothepyro_preview.mp4', name: 'Jo The Pyro', demoURL: 'https://bdon-htb.github.io/', srcURL: 'https://github.com/bdon-htb/jothepyro-js' }
   ];
 
   return {
@@ -67,11 +67,14 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
       </section>
 
       <section id="projects">
-        <div>
-          {props.projects.map( p => (
-            <ProjectCard {...p}></ProjectCard>
-          ))}
-        </div>
+        <ContentCard>
+          <div className="pccontainer">
+            <p>Here are some of my projects</p>
+            {props.projects.map( p => (
+              <ProjectCard {...p}></ProjectCard>
+            ))}
+          </div>
+        </ContentCard>
       </section> 
 
       <section id="contact">
