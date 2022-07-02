@@ -3,12 +3,12 @@ import Image  from 'next/image'
 import { v4 as uuidv4 } from 'uuid';
 
 import ContentCard from '../components/ContentCard'
-import Header from '../components/Header'
-import type { NavItem } from '../components/Header'
+import type { NavItem } from '../components/Navbar'
 import type { ProjectCardProps } from '../components/ProjectCard'
 
 import profilePic from '../public/images/profile.jpg'
 import ProjectCard from '../components/ProjectCard'
+import Navbar from '../components/Navbar';
 
 export const getStaticProps = async () => {
   const navItems: NavItem[] = [
@@ -33,7 +33,11 @@ export const getStaticProps = async () => {
 const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) => {
   return (
     <>
-      <Header items={props.navItems}></Header>
+      <header className="header">
+        <nav>
+          <Navbar items={props.navItems}></Navbar>
+        </nav>
+      </header>
 
       <section id="home">
         <ContentCard>
