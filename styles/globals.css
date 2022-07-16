@@ -21,6 +21,7 @@ body {
 #__next {
   height: 100%;
   overflow: auto;
+  scroll-behavior: smooth;
 }
 
 section {
@@ -50,6 +51,11 @@ section {
 
 } */
 
+.projectslist {
+  display: flex;
+  justify-content: center;
+}
+
 .profilepic {
   border-radius: 70%;
 }
@@ -57,15 +63,4 @@ section {
 .profilepic__wrapper {
   max-height: 300px;
   max-width: 300px;
-}
-
-/* Animations */
-@keyframes fadein {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes fadeout {
-    from { opacity: 1; }
-    to { opacity: 0; }
 }

@@ -18,7 +18,12 @@
     font-size: 2em;
 }
 
-.container a {
+.navlink {
     color: inherit;
     text-decoration: none;
+}
+
+.navlink--active {
+    color: yellow;
+    text-decoration: underline;
 }

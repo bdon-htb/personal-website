@@ -59,7 +59,6 @@ const ProjectCardDisplay: FunctionComponent<ProjectCardDisplayProps> = (props) =
         }
     }
 
-    console.log(props.previewURL);
     return (
         <div className={styles.container} onMouseEnter={() => mouseHandler(true)} onMouseLeave={() => mouseHandler(false)}>
             <video ref={videoRef} className={videoClass} width={width} height={height} loop muted>
