@@ -1,12 +1,15 @@
 .container {
-    margin: 0 10vw;
     position: relative;
     background: none;
-    width: 100%;
-    min-height: 70%;
+    width: 80%;
+    min-height: 500px;
 }
 
 .container__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     padding: 10px 20px;
     color: var(--bg-light);
     position: relative;
