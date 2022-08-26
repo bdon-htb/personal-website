@@ -1,0 +1,1 @@
+All icons in this folder come from https://worldvectorlogo.com and https://www.svgrepo.com 

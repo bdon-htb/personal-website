@@ -1,6 +1,7 @@
 import { FunctionComponent } from "react";
+import Image from 'next/image';
 
-import styles from "../styles/ProjectCard.module.css"
+import styles from "../styles/ProjectCard.module.css";
 import ProjectCardDisplay from "./ProjectCardDisplay";
 
 export interface ProjectCardProps {
@@ -21,8 +22,8 @@ const ProjectCard: FunctionComponent<ProjectCardProps> = (props) => {
                 <h1 className={styles.name}>{props.name}</h1>
                 <p className={styles.brief}>{props.brief}</p>
                 <div className={styles.btncontainer}>
-                    {props.demoURL ? <a className={styles.demolink} href={props.demoURL} target="_blank"><img src="/images/gamepad.svg"/></a>: null}
-                    {props.srcURL ? <a className={styles.srclink} href={props.srcURL} target="_blank"><img src="/images/github.svg"/></a>: null}
+                    {props.demoURL ? <a className={styles.projectlink} href={props.demoURL} target="_blank"><Image src="/images/gamepad.svg" layout="fill"/></a> : null}
+                    {props.srcURL ? <a className={styles.projectlink} href={props.srcURL} target="_blank"><Image src="/images/github.svg" layout="fill" /></a> : null}
                 </div>
             </div>
         </div>

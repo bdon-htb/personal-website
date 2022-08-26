@@ -13,8 +13,14 @@
 
 .infocontainer {
     box-sizing: border-box;
-    padding: 5px 10px 5px 10px;
+    padding: 5px 5px 5px 5px;
     max-width: inherit;
+}
+
+.infocontainer p {
+    line-height: normal;
+    height: 38px;
+    margin: 10px 0;
 }
 
 .name {
@@ -29,23 +35,22 @@
     text-align: center;
 }
 
-.demolink,
-.srclink {
+.projectlink {
     width: 48px;
     height: 48px;
     margin: 0 10px;
     border-radius: 70%;
+    position: relative;
     border-style: none;
+    transition: all 0.2s ease-in-out;
 }
 
-.demolink img,
-.srclink img {
+.projectlink img {
     width: inherit;
     height: inherit;
     transition: all 0.2s ease-in-out;
 }
 
-.demolink img:hover,
-.srclink img:hover {
+.projectlink:hover {
     transform: scale(1.1);
 }

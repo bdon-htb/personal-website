@@ -1,0 +1,11 @@
+.container {
+    width: 96px;
+    height: 96px;
+    margin: 10px;
+    position: relative;   
+    transition: all 0.2s ease-in-out;
+}
+
+.container:hover {
+    transform: scale(1.1);
+}

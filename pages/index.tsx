@@ -1,16 +1,17 @@
 import { useState, useRef, useEffect } from 'react';
-import type { InferGetStaticPropsType, NextPage } from 'next'
-import Image  from 'next/image'
+import type { InferGetStaticPropsType, NextPage } from 'next';
+import Image  from 'next/image';
 import { v4 as uuidv4 } from 'uuid';
 import { useInView } from 'react-intersection-observer';
 
-import ContentCard from '../components/ContentCard'
-import type { NavItem } from '../components/Navbar'
-import type { ProjectCardProps } from '../components/ProjectCard'
+import ContentCard from '../components/ContentCard';
+import type { NavItem } from '../components/Navbar';
+import type { ProjectCardProps } from '../components/ProjectCard';
 
-import profilePic from '../public/images/profile.jpg'
-import ProjectCard from '../components/ProjectCard'
+import profilePic from '../public/images/profile.jpg';
+import ProjectCard from '../components/ProjectCard';
 import Navbar from '../components/Navbar';
+import SkillIcon, { SkillIconProps } from '../components/SkillIcon';
 
 export const getStaticProps = async () => {
   const navItems: NavItem[] = [
@@ -21,17 +22,33 @@ export const getStaticProps = async () => {
   ];
 
   const projects: ProjectCardProps[] = [
-    { key: uuidv4(), imageURL: "/images/jothepyro_cover.png", previewURL: "/videos/jothepyro_preview.mp4", name: "Jo The Pyro", brief: "A game about fighting evil plants", demoURL: "https://bdon-htb.github.io/", srcURL: "https://github.com/bdon-htb/jothepyro-js" },
-    { key: uuidv4(), imageURL: "/images/aliza_cover.png", previewURL: "/videos/alizachatbot_preview.mp4", name: "Aliza Chatbot", brief: "An interactive web chatbot", demoURL: "", srcURL: "https://github.com/bdon-htb/chatbot-js" },
-    { key: uuidv4(), imageURL: "/images/damontower_cover.png", previewURL: "/videos/damontower_preview.mp4", name: "Damon\'s Tower", brief: "An (unfinished) game engine + roguelite", demoURL: "", srcURL: "https://github.com/bdon-htb/damons-tower" },
-    { key: uuidv4(), imageURL: "/images/ezbudget_cover.png", previewURL: "/videos/ezbudget_preview.mp4", name: "EzBudget", brief: "A basic budgeting application", demoURL: "", srcURL: "https://github.com/bdon-htb/python-ezbudget" },
-    { key: uuidv4(), imageURL: "/images/richardbot_cover.png", previewURL: "/videos/richardbot_preview.mp4", name: "Richard Bot", brief: "A simple discord bot for personal use", demoURL: "", srcURL: "https://github.com/bdon-htb/richard_bot" }
+    { key: uuidv4(), imageURL: "/images/project_covers/jothepyro_cover.png", previewURL: "/videos/jothepyro_preview.mp4", name: "Jo The Pyro", brief: "A game about fighting evil plants", demoURL: "https://bdon-htb.github.io/", srcURL: "https://github.com/bdon-htb/jothepyro-js" },
+    { key: uuidv4(), imageURL: "/images/project_covers/aliza_cover.png", previewURL: "/videos/alizachatbot_preview.mp4", name: "Aliza Chatbot", brief: "An interactive web chatbot", demoURL: "", srcURL: "https://github.com/bdon-htb/chatbot-js" },
+    { key: uuidv4(), imageURL: "/images/project_covers/damontower_cover.png", previewURL: "/videos/damontower_preview.mp4", name: "Damon\'s Tower", brief: "An (unfinished) game engine + roguelite", demoURL: "", srcURL: "https://github.com/bdon-htb/damons-tower" },
+    { key: uuidv4(), imageURL: "/images/project_covers/ezbudget_cover.png", previewURL: "/videos/ezbudget_preview.mp4", name: "EzBudget", brief: "A basic budgeting application", demoURL: "", srcURL: "https://github.com/bdon-htb/python-ezbudget" },
+    { key: uuidv4(), imageURL: "/images/project_covers/richardbot_cover.png", previewURL: "/videos/richardbot_preview.mp4", name: "Richard Bot", brief: "A simple discord bot for personal use", demoURL: "", srcURL: "https://github.com/bdon-htb/richard_bot" }
+  ];
+
+  const skills: SkillIconProps[] = [
+    { key: uuidv4(), imageURL: "/images/skills_icons/c_lang.svg", url: "https://en.wikipedia.org/wiki/C_(programming_language)"},
+    { key: uuidv4(), imageURL: "/images/skills_icons/java.svg", url: "https://www.oracle.com/java/" },
+    { key: uuidv4(), imageURL: "/images/skills_icons/python.svg", url: "https://www.python.org/" },
+    { key: uuidv4(), imageURL: "/images/skills_icons/javascript.svg", url: "https://en.wikipedia.org/wiki/JavaScript" },
+    { key: uuidv4(), imageURL: "/images/skills_icons/typescript.svg", url: "https://www.typescriptlang.org/" },
+    { key: uuidv4(), imageURL: "/images/skills_icons/html.svg", url: "https://en.wikipedia.org/wiki/HTML" },
+    { key: uuidv4(), imageURL: "/images/skills_icons/css.svg", url: "https://en.wikipedia.org/wiki/CSS" },
+    { key: uuidv4(), imageURL: "/images/skills_icons/nextjs.svg", url: "https://nextjs.org/" },
+    { key: uuidv4(), imageURL: "/images/skills_icons/git.svg", url: "https://git-scm.com/" },
+    { key: uuidv4(), imageURL: "/images/skills_icons/linux.svg", url: "https://en.wikipedia.org/wiki/Linux" },
+    { key: uuidv4(), imageURL: "/images/skills_icons/bash.svg", url: "https://www.gnu.org/software/bash/" },
+    { key: uuidv4(), imageURL: "/images/skills_icons/vscode.svg", url: "https://code.visualstudio.com/" },
   ];
 
   return {
     props: {
       navItems,
-      projects
+      projects,
+      skills
     }
   }
 }
@@ -89,13 +106,12 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
       <section id="home" ref={homeRef}>
         <ContentCard>
             <div className="hccontainer">
-              <div>
-                <h1>BRANDON PHILLIPS</h1>
-                <h2>(not to be confused with Brandon Phillips, the baseball player)</h2>
+              <div className="hcctext">
+                <h1>Brandon Phillips</h1>
+                <h2>Software developer by day, hobby artist by night.</h2>
                 <p>
-                  Hello.<br></br>
-                  I am a software developer and hobbyist artist. Keep scrolling
-                  to see my skills and projects.
+                  Welcome to my personal website.<br></br>
+                  Keep scrolling to see a list of my skills,<br></br>some personal projects, and how to contact me.<br></br>
                 </p>
               </div>
               <div className="profilepic__wrapper">
@@ -110,17 +126,25 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
 
       <section id="skills" ref={skillsRef}>
         <ContentCard>
-          <h1>SKILLS</h1>
-          <p>
-            Yooooooo!
-          </p>
+          <div className="sccontainer">
+            <h1>Skills</h1>
+            <p>
+              Below is a list of programming languages, frameworks, and environments I have experience with.
+            </p>            
+            <div className="skillslist">
+              {props.skills.map( s => (
+                <SkillIcon {...s}></SkillIcon>
+              ))}
+            </div>
+          </div>
         </ContentCard>
       </section>
 
       <section id="projects" ref={projectsRef}>
         <ContentCard>
           <div className="pccontainer">
-            <p>Here are some of my projects</p>
+            <h1>Projects</h1>
+            <p>Below is a list of some personal projects I have worked on.</p>
             <div className="projectslist">
               {props.projects.map( p => (
                 <ProjectCard {...p}></ProjectCard>
