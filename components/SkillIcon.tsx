@@ -12,7 +12,11 @@ export interface SkillIconProps {
 const SkillIcon: FunctionComponent<SkillIconProps> = (props) => {
     return (
         <div className={styles.container}>
-            <a className="" href={props.url} target="_blank"><Image src={props.imageURL} layout="fill"/></a>
+            <a href={props.url} target="_blank">
+                <div className={styles.imagewrapper}>
+                    <Image src={props.imageURL} layout="fill"/>
+                </div>
+            </a>
         </div>
     )
 }

@@ -22,7 +22,7 @@ export const getStaticProps = async () => {
   ];
 
   const projects: ProjectCardProps[] = [
-    { key: uuidv4(), imageURL: "/images/project_covers/jothepyro_cover.png", previewURL: "/videos/jothepyro_preview.mp4", name: "Jo The Pyro", brief: "A game about fighting evil plants", demoURL: "https://bdon-htb.github.io/", srcURL: "https://github.com/bdon-htb/jothepyro-js" },
+    { key: uuidv4(), imageURL: "/images/project_covers/jothepyro_cover.png", previewURL: "/videos/jothepyro_preview.mp4", name: "Jo The Pyro", brief: "A game about fighting evil plants", demoURL: "/jothepyro", srcURL: "https://github.com/bdon-htb/jothepyro-js" },
     { key: uuidv4(), imageURL: "/images/project_covers/aliza_cover.png", previewURL: "/videos/alizachatbot_preview.mp4", name: "Aliza Chatbot", brief: "An interactive web chatbot", demoURL: "", srcURL: "https://github.com/bdon-htb/chatbot-js" },
     { key: uuidv4(), imageURL: "/images/project_covers/damontower_cover.png", previewURL: "/videos/damontower_preview.mp4", name: "Damon\'s Tower", brief: "An (unfinished) game engine + roguelite", demoURL: "", srcURL: "https://github.com/bdon-htb/damons-tower" },
     { key: uuidv4(), imageURL: "/images/project_covers/ezbudget_cover.png", previewURL: "/videos/ezbudget_preview.mp4", name: "EzBudget", brief: "A basic budgeting application", demoURL: "", srcURL: "https://github.com/bdon-htb/python-ezbudget" },
@@ -127,10 +127,12 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
       <section id="skills" ref={skillsRef}>
         <ContentCard>
           <div className="sccontainer">
-            <h1>Skills</h1>
-            <p>
-              Below is a list of programming languages, frameworks, and environments I have experience with.
-            </p>            
+            <div className="scctext">
+              <h1>Skills</h1>
+              <p>
+                Below is a list of programming languages, frameworks, and environments I have experience with.
+              </p> 
+            </div>           
             <div className="skillslist">
               {props.skills.map( s => (
                 <SkillIcon {...s}></SkillIcon>
@@ -143,8 +145,10 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
       <section id="projects" ref={projectsRef}>
         <ContentCard>
           <div className="pccontainer">
-            <h1>Projects</h1>
-            <p>Below is a list of some personal projects I have worked on.</p>
+            <div className="pcctext">
+              <h1>Projects</h1>
+              <p>Here are some personal projects of mine.</p>
+            </div>
             <div className="projectslist">
               {props.projects.map( p => (
                 <ProjectCard {...p}></ProjectCard>
@@ -163,7 +167,6 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) =
         </ContentCard>
       </section>      
     </>
-
   )
 }
 

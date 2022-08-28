@@ -5,6 +5,11 @@
     position: relative;   
     transition: all 0.2s ease-in-out;
 }
+.imagewrapper {
+    position: relative;
+    width: 96px;
+    height: 96px;
+}
 
 .container:hover {
     transform: scale(1.1);
