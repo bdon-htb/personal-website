@@ -5,17 +5,13 @@ import type { NavItem } from '../components/Navbar';
 import Navbar from '../components/Navbar';
 
 export const getStaticProps = async () => {
-    const gameSrc = "/jtp/index.html";
-    const frameWidth = 820;
-    const frameHeight = 620;
+    const projectSrc = "/jtp/index.html";
     const navItems: NavItem[] = [
         { name: "back to home", url: "/" },
     ]
     return {
         props: {
-            gameSrc,
-            frameWidth,
-            frameHeight,
+            projectSrc,
             navItems
         }
     }
@@ -30,7 +26,7 @@ const JoThePyroPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = 
                 </nav>
             </header>
             <section className="jtpcontainer">
-                <iframe className="jothepyro" src={props.gameSrc} width={props.frameWidth} height={props.frameHeight} frameBorder="0" scrolling="no"></iframe>
+                <iframe className="jothepyro" src={props.projectSrc} frameBorder="0" scrolling="no"></iframe>
             </section>
         </>
     )

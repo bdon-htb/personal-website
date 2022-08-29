@@ -23,7 +23,7 @@ export const getStaticProps = async () => {
 
   const projects: ProjectCardProps[] = [
     { key: uuidv4(), imageURL: "/images/project_covers/jothepyro_cover.png", previewURL: "/videos/jothepyro_preview.mp4", name: "Jo The Pyro", brief: "A game about fighting evil plants", demoURL: "/jothepyro", srcURL: "https://github.com/bdon-htb/jothepyro-js" },
-    { key: uuidv4(), imageURL: "/images/project_covers/aliza_cover.png", previewURL: "/videos/alizachatbot_preview.mp4", name: "Aliza Chatbot", brief: "An interactive web chatbot", demoURL: "", srcURL: "https://github.com/bdon-htb/chatbot-js" },
+    { key: uuidv4(), imageURL: "/images/project_covers/aliza_cover.png", previewURL: "/videos/alizachatbot_preview.mp4", name: "Aliza Chatbot", brief: "An interactive web chatbot", demoURL: "/aliza", srcURL: "https://github.com/bdon-htb/chatbot-js" },
     { key: uuidv4(), imageURL: "/images/project_covers/damontower_cover.png", previewURL: "/videos/damontower_preview.mp4", name: "Damon\'s Tower", brief: "An (unfinished) game engine + roguelite", demoURL: "", srcURL: "https://github.com/bdon-htb/damons-tower" },
     { key: uuidv4(), imageURL: "/images/project_covers/ezbudget_cover.png", previewURL: "/videos/ezbudget_preview.mp4", name: "EzBudget", brief: "A basic budgeting application", demoURL: "", srcURL: "https://github.com/bdon-htb/python-ezbudget" },
     { key: uuidv4(), imageURL: "/images/project_covers/richardbot_cover.png", previewURL: "/videos/richardbot_preview.mp4", name: "Richard Bot", brief: "A simple discord bot for personal use", demoURL: "", srcURL: "https://github.com/bdon-htb/richard_bot" }
