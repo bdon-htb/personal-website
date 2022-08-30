@@ -5,9 +5,8 @@
 }
 
 .container__white {
-    background-color: var(--bg-light);
-    margin: 5px;
-    padding: 5px;
+    margin: 10px;
+    filter: invert(93%) sepia(87%) saturate(23%) hue-rotate(263deg) brightness(116%) contrast(87%);
 }
 
 .imagewrapper {

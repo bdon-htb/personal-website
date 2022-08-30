@@ -47,7 +47,7 @@ export const getStaticProps = async () => {
   const contacts: SkillIconProps[] = [
     { key: uuidv4(), imageURL: "/images/gmail.svg", url: "mailto:brandonjphillips000@gmail.com"},
     { key: uuidv4(), imageURL: "/images/linkedin.svg", url: "https://www.linkedin.com/in/brandon-phillips-a885b824a/"},
-    { key: uuidv4(), imageURL: "/images/github.svg", url: "https://github.com/bdon-htb"},
+    { key: uuidv4(), imageURL: "/images/github.svg", url: "https://github.com/bdon-htb", whiteBG: true},
     { key: uuidv4(), imageURL: "/images/devpost.svg", url: "https://devpost.com/bdon-htb"},
   ];
 
@@ -64,28 +64,6 @@ export const getStaticProps = async () => {
 const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) => {
 
   const [activeSection, setActiveSection] = useState("home");
-
-  // const updateActive = () => {
-  //   let views: { [key: string]: boolean } = {
-  //     "home": homeInView,
-  //     "skills": skillsInView,
-  //     "projects": projectsInView,
-  //     "contact": contactInView
-  //   }
-
-  //   let last: NavItem | null = null;
-  //   for (const item of props.navItems) {
-  //     if (views[item.name]) { // If view is visible...
-  //       last = item;
-  //     }
-  //   }
-
-  //   if (last) {
-  //     if (last.name != activeSection) {
-  //       setActiveSection(last.name);
-  //     }
-  //   }
-  // }
 
   const [homeRef, homeInView] = useInView({
     initialInView: true,
