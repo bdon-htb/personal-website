@@ -5,6 +5,7 @@
     background: none;
     width: 80%;
     min-height: 500px;
+    box-shadow: 0 0 0.5rem var(--bg-dark);
 }
 
 .container__content {
@@ -19,26 +20,31 @@
 }
 
 .container__background,
-.container__dropshadow {
+.container__background__alt,
+.container__dropshadow,
+.container__dropshadow__alt {
     position: absolute;
     border-radius: 0.75rem;
 }
 
-.container__background {
-    background: var(--bg-primary);
-    opacity: 0.4;
+.container__background, .container__background__alt {
+    opacity: 0.9;
     top: 0;
     right: 0;
     width: 100%;
     height: 100%;
     z-index: 1;
+    border-right: 5px solid;
+    border-bottom: 5px solid;
+    border-radius: 0.75rem;    
 }
 
-.container__dropshadow {
-    background: var(--bg-accent);
-    top: 0px;
-    left: 10px;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
+.container__background {
+    background: var(--bg-primary);
+    border-color: var(--bg-accent);
+}
+
+.container__background__alt {
+    background: var(--bg-alt);
+    border-color: var(--bg-accent-alt);
 }

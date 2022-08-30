@@ -65,7 +65,7 @@ const ProjectCardDisplay: FunctionComponent<ProjectCardDisplayProps> = (props) =
                 <source src={props.previewURL} type="video/mp4"/>
             </video>
             <div className={imgClass}>
-                <Image src={props.imageURL} width={width} height={height} layout="fixed"/>
+                <Image src={props.imageURL} width={width} height={height} layout="fixed" alt=""/>
             </div>
         </div>
     )

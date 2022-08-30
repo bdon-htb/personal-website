@@ -4,6 +4,7 @@ import Image from 'next/image';
 
 import styles from "../styles/ProjectCard.module.css";
 import ProjectCardDisplay from "./ProjectCardDisplay";
+import ToolTip from "./Tooltip";
 
 export interface ProjectCardProps {
     key: string;
@@ -23,8 +24,16 @@ const ProjectCard: FunctionComponent<ProjectCardProps> = (props) => {
                 <h1 className={styles.name}>{props.name}</h1>
                 <p className={styles.brief}>{props.brief}</p>
                 <div className={styles.btncontainer}>
-                    {props.demoURL ? <Link href={props.demoURL}><a className={styles.projectlink}><Image src="/images/gamepad.svg" layout="fill" /></a></Link> : null}
-                    {props.srcURL ? <a className={styles.projectlink} href={props.srcURL} target="_blank"><Image src="/images/github.svg" layout="fill" /></a> : null}
+                    {props.demoURL ?
+                    <span className={styles.demolink__wrapper}>
+                        <ToolTip text="Play live demo">
+                            <Link href={props.demoURL}><a className={styles.projectlink}><Image src="/images/gamepad.svg" layout="fill" alt=""/></a></Link>
+                        </ToolTip>
+                    </span> : null}
+                    {props.srcURL ? 
+                    <ToolTip text="See source code">
+                        <a className={styles.projectlink} href={props.srcURL} target="_blank" rel="noreferrer"><Image src="/images/github.svg" layout="fill" alt=""/></a>
+                    </ToolTip>: null}
                 </div>
             </div>
         </div>

@@ -1,8 +1,8 @@
 .container {
-    margin: 2vh 10vw 0 10vw;
     display: flex;
     justify-content: center;
     text-transform: uppercase;
+    background: none;
 }
 
 .container ul {
@@ -24,11 +24,11 @@
 }
 
 .navlink:hover {
-    color: var(--bg-accent);
+    color: var(--highlight);
     text-decoration: none;
 }
 
 .navlink--active {
-    color: var(--bg-accent);
-    text-decoration: underline;
+    color: var(--highlight-alt);
+    text-decoration: none;
 }

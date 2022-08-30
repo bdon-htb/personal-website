@@ -1,16 +1,28 @@
-.container {
-    width: 96px;
-    height: 96px;
+.container, .container__white {
     margin: 10px;
     position: relative;   
     transition: all 0.2s ease-in-out;
 }
+
+.container__white {
+    background-color: var(--bg-light);
+    margin: 5px;
+    padding: 5px;
+}
+
 .imagewrapper {
     position: relative;
     width: 96px;
     height: 96px;
 }
 
-.container:hover {
+@media only screen and (max-width: 640px) {
+    .imagewrapper {
+        width: 64px;
+        height: 64px;
+    }
+}
+
+.container:hover, .container__white:hover {
     transform: scale(1.1);
 }
