@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 import styles from "../styles/ProjectCard.module.css";
 import ProjectCardDisplay from "./ProjectCardDisplay";
-import ToolTip from "./Tooltip";
+import ToolTip from "./ToolTip";
 
 export interface ProjectCardProps {
     key: string;
